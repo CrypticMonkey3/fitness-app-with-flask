@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h2>{% block title %}Home{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+    <p>Home description, go to the abouts page at <a href="{{ url_for('pages.about') }}">About page</a>.</p>
+{% endblock content %}
