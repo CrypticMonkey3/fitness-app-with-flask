@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
     <head>
         <meta charset="UTF-8">
         <title>Fitness App: {% block title %}{% endblock title %}</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='header.js') }}"></script>
     </head>
-    <body>
-        <h1>Fitness App</h1>
-        {% include("_navigation.html") %}
+    <body onscroll="stick_header();">
         <section>
             <header>
-                {% block header %}{% endblock header %}
+                <div class="sticky_header" id="sticky_header">
+                    <a href="{{ url_for('pages.home') }}">
+                        <img src="{{ url_for('static', filename='Menu Icon.png') }}" id="sub-menu icon" alt="Hamburger icon" height=100px width=100px>
+                    </a>
+                </div>
             </header>
             <main>
+                <h1>Fitness App</h1>
+                {% include("_navigation.html") %}
                 {% block content %}<p>No messages.</p>{% endblock content %}
             </main>
         </section>

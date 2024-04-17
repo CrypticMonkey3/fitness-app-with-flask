@@ -1,12 +1,9 @@
-* {
-    box-sizeing: border-box;
-}
-
 body {
     font-family: sans-serif;
     font-size: 20px;
     margin: 0 auto;
     text-align: center;
+    overflow-x: hidden;  /* Hides horizontal scrollbar and removes horizontal scrolling */
 }
 
 a, a:visited {
@@ -30,4 +27,35 @@ nav ul li {
 main {
     width: 80%;
     margin: 0 auto;
+}
+
+.sticky_header {
+    /* how the sticky_header will look when the scroll value is at the top of the screen. */
+    position: -webkit-sticky;  /* For Safari compatibility */
+    position: sticky;
+
+    background-color: transparent;
+    transition: background-color 0.5s linear;
+    padding: 10px 20px 10px 20px;  /* <top, right, bottom, left> */
+    width: 100vw;
+    display: flex;  /* Makes all elements in the sticky_header to be on the same line */
+}
+
+.sticky {
+    /* Fixes the position of the sticky_header at the top of the viewport when scrolling down */
+    position: fixed;
+    top: 0;
+
+    background-color: rgba(0, 0, 0, 0.83);
+    transition: background-color 0.5s linear;
+}
+
+.shrink_logo {
+    height: 80px;
+    transition: height 0.3s ease-in;
+}
+
+.enlarge_logo {
+    height: 100px;
+    transition: height 0.3s ease-out;
 }
