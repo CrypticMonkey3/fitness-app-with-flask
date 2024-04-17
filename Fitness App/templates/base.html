@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Fitness App: {% block title %}{% endblock title %}</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='header.js') }}"></script>
+        <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='header.mjs') }}" defer></script>
     </head>
     <body onscroll="stick_header();">
         <section>
