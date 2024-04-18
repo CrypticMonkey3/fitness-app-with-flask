@@ -6,6 +6,30 @@ body {
     overflow-x: hidden;  /* Hides horizontal scrollbar and removes horizontal scrolling */
 }
 
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#left, #right {
+    background-image: url("nice_snow.png");
+    position: fixed;
+    top: 0; bottom: 0;
+    width: 10%;
+    z-index: 1;
+}
+
+#left {
+    left: 0;
+    -webkit-mask-image: linear-gradient(to left, transparent 10%, black 90%);
+    mask-image: linear-gradient(to left, transparent 0%, black 30%);
+}
+#right {
+    right: 0;
+    -webkit-mask-image: linear-gradient(to right, transparent 10%, black 90%);
+    mask-image: linear-gradient(to right, transparent 0%, black 30%);
+}
+
 a, a:visited {
     color: #007bff;
 }
@@ -24,21 +48,17 @@ nav ul li {
     margin: 0 5px;
 }
 
-main {
-    width: 80%;
-    margin: 0 auto;
-}
-
 .sticky_header {
     /* how the sticky_header will look when the scroll value is at the top of the screen. */
     position: -webkit-sticky;  /* For Safari compatibility */
     position: sticky;
 
     background-color: transparent;
-    transition: background-color 0.5s linear;
+    transition: background-color 0.3s linear;
     padding: 10px 20px 10px 20px;  /* <top, right, bottom, left> */
     width: 100vw;
     display: flex;  /* Makes all elements in the sticky_header to be on the same line */
+    z-index: 2;
 }
 
 .sticky {
@@ -47,15 +67,27 @@ main {
     top: 0;
 
     background-color: rgba(0, 0, 0, 0.83);
-    transition: background-color 0.5s linear;
+    transition: background-color 0.3s linear;
 }
 
-.shrink_logo {
-    height: 80px;
-    transition: height 0.3s ease-in;
+.shrink_header img {
+    height: 50px;
+    width: auto;
+    transition: width 0.3s ease-in, height 0.3s ease-in;
 }
 
-.enlarge_logo {
-    height: 100px;
-    transition: height 0.3s ease-out;
+.shrink_header nav ul li {
+    font-size: 15px;
+    transition: font-size 0.3s ease-in;
+}
+
+.enlarge_header img {
+    height: 60px;
+    width: auto;
+    transition: width 0.3s ease-out, height 0.3s ease-out;
+}
+
+.enlarge_header nav ul li {
+    font-size: 20px;
+    transition: font-size 0.3s ease-out;
 }
