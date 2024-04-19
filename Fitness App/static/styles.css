@@ -1,9 +1,14 @@
+html {
+    background: rgba(249, 249, 249, 1);
+}
+
 body {
     font-family: sans-serif;
     font-size: 20px;
     margin: 0 auto;
     text-align: center;
     overflow-x: hidden;  /* Hides horizontal scrollbar and removes horizontal scrolling */
+    background-color: #E1E6E1;
 }
 
 main {
@@ -11,8 +16,12 @@ main {
     margin: 0 auto;
 }
 
+.main_contents {
+    padding: 5px 30px 10px 30px;
+}
+
 #left, #right {
-    background-image: url("nice_snow.png");
+    background-image: url("sports_background.jpg");
     position: fixed;
     top: 0; bottom: 0;
     width: 10%;
@@ -22,12 +31,12 @@ main {
 #left {
     left: 0;
     -webkit-mask-image: linear-gradient(to left, transparent 10%, black 90%);
-    mask-image: linear-gradient(to left, transparent 0%, black 30%);
+    mask-image: linear-gradient(to left, transparent 0%, black 60%);
 }
 #right {
     right: 0;
     -webkit-mask-image: linear-gradient(to right, transparent 10%, black 90%);
-    mask-image: linear-gradient(to right, transparent 0%, black 30%);
+    mask-image: linear-gradient(to right, transparent 0%, black 60%);
 }
 
 a, a:visited {
@@ -41,11 +50,13 @@ a:hover {
 nav ul {
     list-style-type: none;
     padding: 0;
+
 }
 
 nav ul li {
     display: inline;
     margin: 0 5px;
+    text-align: right;
 }
 
 .sticky_header {
@@ -55,8 +66,8 @@ nav ul li {
 
     background-color: transparent;
     transition: background-color 0.3s linear;
-    padding: 10px 20px 10px 20px;  /* <top, right, bottom, left> */
-    width: 100vw;
+    padding: 10px 10% 10px 12%;  /* <top, right, bottom, left> */
+    width: 100%;
     display: flex;  /* Makes all elements in the sticky_header to be on the same line */
     z-index: 2;
 }
