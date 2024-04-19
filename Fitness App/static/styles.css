@@ -8,7 +8,7 @@ body {
     margin: 0 auto;
     text-align: center;
     overflow-x: hidden;  /* Hides horizontal scrollbar and removes horizontal scrolling */
-    background-color: #E1E6E1;
+    background-color: #FFF5E0;
 }
 
 main {
@@ -47,16 +47,30 @@ a:hover {
     color: #0056b3;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-
+nav {
+    display: flex;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 5px;
-    text-align: right;
+    display: inline-block;
+    padding: 8px 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: #F60;
+}
+
+.header_contents nav img {
+    position: fixed;
+    padding: 10px 25px;
+    right: 10%;
 }
 
 .sticky_header {
