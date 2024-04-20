@@ -18,6 +18,13 @@ main {
 
 .main_contents {
     padding: 7% 30px 10px 30px;
+    border-style: none solid none solid;
+}
+
+.overlay {
+    position: relative;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2;
 }
 
 #left, #right {
@@ -60,17 +67,29 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #FCFAA4 !important;  /*  !important Overrides ALL previous styling rules of color in the element */
-
+    font-size: 30px;
 }
 
 nav ul li a:hover {
     text-decoration: none;
-    font-weight: bold;
+}
+
+nav ul li a:after {
+    content: "";
+    display: block;
+    width: 0;
+    border-bottom: 2px solid;
+    margin: 0 auto;
+    transition: all 0.3s linear 0s;
+}
+
+nav ul li a:hover:after {
+    width: 90%;
 }
 
 .header_contents nav img {
     position: fixed;
-    padding: 10px 25px;
+    padding: 18px 25px;
     right: 10%;
 }
 
@@ -78,7 +97,6 @@ nav ul li a:hover {
     position: fixed;
 
     background-color: rgba(0, 0, 0, 0.83);
-    transition: background-color 0.3s linear;
     padding: 10px 10% 10px 12%;  /* <top, right, bottom, left> */
     width: 100%;
     display: flex;  /* Makes all elements in the sticky_header to be on the same line */
@@ -91,8 +109,8 @@ nav ul li a:hover {
     transition: width 0.3s ease-in, height 0.3s ease-in;
 }
 
-.shrink_header nav ul li {
-    font-size: 15px;
+.shrink_header nav ul li * {
+    font-size: 20px;
     transition: font-size 0.3s ease-in;
 }
 
@@ -102,7 +120,7 @@ nav ul li a:hover {
     transition: width 0.3s ease-out, height 0.3s ease-out;
 }
 
-.enlarge_header nav ul li {
-    font-size: 20px;
+.enlarge_header nav ul li * {
+    font-size: 30px;
     transition: font-size 0.3s ease-out;
 }
