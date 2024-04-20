@@ -1,5 +1,5 @@
 html {
-    background: rgba(249, 249, 249, 1);
+    background-image: radial-gradient(rgba(157, 200, 141, 1), rgba(54, 71, 48, 1));
 }
 
 body {
@@ -8,7 +8,6 @@ body {
     margin: 0 auto;
     text-align: center;
     overflow-x: hidden;  /* Hides horizontal scrollbar and removes horizontal scrolling */
-    background-image: radial-gradient(rgba(157, 200, 141, 1), rgba(54, 71, 48, 1));
 }
 
 main {
@@ -17,8 +16,7 @@ main {
 }
 
 .main_contents {
-    padding: 7% 30px 10px 30px;
-    border-style: none solid none solid;
+    padding: 100px 30px 10px 30px;
 }
 
 .overlay {
@@ -38,12 +36,18 @@ main {
 #left {
     left: 0;
     -webkit-mask-image: linear-gradient(to left, transparent 10%, black 90%);
-    mask-image: linear-gradient(to left, transparent 0%, black 60%);
+    mask-image: linear-gradient(to left, transparent 0%, black 20%);
 }
 #right {
     right: 0;
     -webkit-mask-image: linear-gradient(to right, transparent 10%, black 90%);
-    mask-image: linear-gradient(to right, transparent 0%, black 60%);
+    mask-image: linear-gradient(to right, transparent 0%, black 20%);
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.53);
+    height: 100%;
+    z-index: 2;
 }
 
 a, a:visited {
@@ -87,10 +91,21 @@ nav ul li a:hover:after {
     width: 90%;
 }
 
-.header_contents nav img {
+.header_contents nav button {
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 30px;
+    margin: 15px auto;
     position: fixed;
     padding: 18px 25px;
     right: 10%;
+    color: #FCFAA4;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.header_contents nav button:hover {
+    background-color: rgba(249, 249, 202, 0.1)
 }
 
 .sticky_header {
@@ -103,10 +118,9 @@ nav ul li a:hover:after {
     z-index: 2;
 }
 
-.shrink_header img {
-    height: 50px;
-    width: auto;
-    transition: width 0.3s ease-in, height 0.3s ease-in;
+.shrink_header nav button {
+    font-size: 14px;
+    transition: font-size 0.3s ease-in;
 }
 
 .shrink_header nav ul li * {
@@ -114,10 +128,9 @@ nav ul li a:hover:after {
     transition: font-size 0.3s ease-in;
 }
 
-.enlarge_header img {
-    height: 60px;
-    width: auto;
-    transition: width 0.3s ease-out, height 0.3s ease-out;
+.enlarge_header nav button {
+    font-size: 20px;
+    transition: font-size 0.3s ease-out;
 }
 
 .enlarge_header nav ul li * {
