@@ -8,7 +8,7 @@ body {
     margin: 0 auto;
     text-align: center;
     overflow-x: hidden;  /* Hides horizontal scrollbar and removes horizontal scrolling */
-    background-color: #FFF5E0;
+    background-image: radial-gradient(rgba(157, 200, 141, 1), rgba(54, 71, 48, 1));
 }
 
 main {
@@ -17,7 +17,7 @@ main {
 }
 
 .main_contents {
-    padding: 5px 30px 10px 30px;
+    padding: 7% 30px 10px 30px;
 }
 
 #left, #right {
@@ -53,18 +53,19 @@ nav {
 
 nav ul li {
     display: inline-block;
-    padding: 8px 25px;
+    padding: 8px 12px;
+    color: #FCFAA4;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: white;
-    font-weight: bold;
+    color: #FCFAA4 !important;  /*  !important Overrides ALL previous styling rules of color in the element */
+
 }
 
 nav ul li a:hover {
     text-decoration: none;
-    color: #F60;
+    font-weight: bold;
 }
 
 .header_contents nav img {
@@ -74,25 +75,14 @@ nav ul li a:hover {
 }
 
 .sticky_header {
-    /* how the sticky_header will look when the scroll value is at the top of the screen. */
-    position: -webkit-sticky;  /* For Safari compatibility */
-    position: sticky;
+    position: fixed;
 
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.83);
     transition: background-color 0.3s linear;
     padding: 10px 10% 10px 12%;  /* <top, right, bottom, left> */
     width: 100%;
     display: flex;  /* Makes all elements in the sticky_header to be on the same line */
     z-index: 2;
-}
-
-.sticky {
-    /* Fixes the position of the sticky_header at the top of the viewport when scrolling down */
-    position: fixed;
-    top: 0;
-
-    background-color: rgba(0, 0, 0, 0.83);
-    transition: background-color 0.3s linear;
 }
 
 .shrink_header img {
