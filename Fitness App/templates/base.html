@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Fitness App: {% block title %}{% endblock title %}</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        {% block stylesheet %}{% endblock stylesheet %}
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='header.mjs') }}" defer></script>
         <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='scrolling_background.mjs') }}"></script>
@@ -26,7 +26,6 @@
                 </div>
 
                 <div class="main_contents" id="main_contents">
-                    <h1>Fitness App</h1>
                     {% block content %}<p>No messages.</p>{% endblock content %}
                 </div>
             </main>

@@ -28,3 +28,8 @@ def online():
 def profile():
     return render_template("pages/profile.html")
 
+
+@bp.route("/setup_account")
+def setup_account():
+    return render_template("pages/setup_account.html")
+

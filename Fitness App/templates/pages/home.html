@@ -1,30 +1,70 @@
 {% extends 'base.html' %}
 
+{% block stylesheet %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock stylesheet %}
+
 {% block header %}
         {% include("_navigation.html") %}
 {% endblock header %}
 
 {% block content %}
-    <p>Home description, go to the abouts page at ...</p>
-            <p>The header will stick to the top when you reach its scroll position.</p>
-            <p>Scroll back up to remove the sticky effect.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+        <table>
+                <tr>
+                        <th colspan="2">
+                                <h1>Fitness App</h1>
+                        </th>
+                </tr>
+                <tr>
+                        <td colspan="2">
+                                There have been many great fitness influencers ranging from bodybuilders like Arnold Schwarzenegger to inspire people to begin training their body and their mind in order to find a positive confidence within themselves.
+                                A couple of quotes of some famous fitness figures are below:
+                        </td>
+                </tr>
+                <tr>
+                        <td style="width: 50%;">
+                                "Life's Six Rules for Success:
+                                <ol>
+                                        <li>
+                                                Trust Yourself
+                                        </li>
+                                        <li>
+                                                Break some Rules
+                                        </li>
+                                        <li>
+                                                Don't be afraid to fail.
+                                        </li>
+                                        <li>
+                                                Ignore the naysayers
+                                        </li>
+                                        <li>
+                                                Work like hell
+                                        </li>
+                                        <li>
+                                                Give something back"
+                                        </li>
+                                </ol>
+                                ~ Arnold Schwarzenegger
+                        </td>
+                        <td>
+                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fim.indiatimes.in%2Fcontent%2F2020%2FMar%2F2_5e6dda150f707.jpg&f=1&nofb=1&ipt=2800d646b701d50e7cf613f4cfe75682a83d65bff085ffeeaeaefe0302903d8c&ipo=images" width="350" height="250">
+                        </td>
+                </tr>
+                <tr>
+                        <td>
+                                "The only one you can accurately compare yourself to is you." ~ Mike Mentzer
+                        </td>
+                        <td>
+                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-LvHTG-QTJjI%2FTkSHxIk8jZI%2FAAAAAAAADyY%2FCHuxoqd61_s%2Fs1600%2Ffotos_mike_mentzer_207.jpg&f=1&nofb=1&ipt=594544d6e98bb7fa669eff0d568964cdeb6c97797f0f52216f304b8ba799b808&ipo=images" width="350" height="500">
+                        </td>
+                </tr>
+                <tr>
+                        <td>
+                                "You are what you do repeatedly every day. If excellence is something you're striving for, then it's not an accident. It's a HABIT." ~ Greg Plitt
+                        </td>
+                        <td>
+                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.7-i-vw3Z-OvtNWTxRvi9DwHaLp%26pid%3DApi&f=1&ipt=4a604d1d5ef0776b8475797829046cb25a3ea2ae5141f1d4b9bd27c556830b99&ipo=images" width="350" height="500">
+                        </td>
+                </tr>
+        </table>
 {% endblock content %}
