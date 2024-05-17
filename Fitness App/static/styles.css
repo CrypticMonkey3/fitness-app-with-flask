@@ -1,148 +1,253 @@
-html {
-    background-image: radial-gradient(rgba(157, 200, 141, 1), rgba(54, 71, 48, 1));
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body {
-    font-family: sans-serif;
-    font-size: 20px;
-    margin: 0 auto;
-    overflow-x: hidden;  /* Hides horizontal scrollbar and removes horizontal scrolling */
-}
-
-main {
-    width: 80%;
-    margin: 0 auto;
-}
-
-.main_contents {
-    padding: 100px 30px 10px 30px;
-}
-
-.main_contents table th, .main_contents table td {
-    padding: 10px;
-}
-
-.main_contents table img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.overlay {
+section {
     position: relative;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 2;
-}
-
-#left, #right {
-    background-image: url("sports_background.jpg");
-    position: fixed;
-    top: 0; bottom: 0;
-    width: 10%;
-    z-index: 1;
-}
-
-#left {
-    left: 0;
-    -webkit-mask-image: linear-gradient(to left, transparent 10%, black 90%);
-    mask-image: linear-gradient(to left, transparent 0%, black 20%);
-}
-#right {
-    right: 0;
-    -webkit-mask-image: linear-gradient(to right, transparent 10%, black 90%);
-    mask-image: linear-gradient(to right, transparent 0%, black 20%);
-}
-
-.overlay {
-    background-color: rgba(0, 0, 0, 0.53);
-    height: 100%;
-    z-index: 2;
-}
-
-a, a:visited {
-    color: #007bff;
-}
-
-a:hover {
-    color: #0056b3;
-}
-
-nav {
+    width: 100%;
+    background: url("greg_plitt_wall_art.jpg");
+    background-size: cover;
+    background-position: center;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px;
 }
 
-nav ul li {
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(50, 50, 50, 0.45);
+    z-index: 2;
+}
+
+header .logo {
+    position: relative;
+    font-size: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+header .navigation {
+    position: relative;
+    display; flex;
+}
+
+header .navigation li {
+    list-style: none;  /* Removes the bullet points from list elements */
     display: inline-block;
-    padding: 8px 12px;
-    color: #FCFAA4;
+    margin-right: 40px;
 }
 
-nav ul li a {
+header .navigation li a {
+    color: #fff;
     text-decoration: none;
-    color: #FCFAA4 !important;  /*  !important Overrides ALL previous styling rules of color in the element */
-    font-size: 30px;
+    transition: color 0.3s;
 }
 
-nav ul li a:hover {
-    text-decoration: none;
+header .navigation li a:hover {
+    color: #04e5f9;
+    transition: color 0.3s;
 }
 
-nav ul li a:after {
+header .navigation li a:after {
     content: "";
     display: block;
     width: 0;
     border-bottom: 2px solid;
     margin: 0 auto;
-    transition: all 0.3s linear 0s;
+    transition: all 0.15s linear 0s;
 }
 
-nav ul li a:hover:after {
+header .navigation li a:hover:after {
     width: 90%;
 }
 
-.header_contents nav button {
-    background-color: transparent;
-    border: 2px solid;
-    border-radius: 30px;
-    margin: 15px auto;
+.container {
     position: fixed;
-    padding: 18px 25px;
-    right: 10%;
-    color: #FCFAA4;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.header_contents nav button:hover {
-    background-color: rgba(249, 249, 202, 0.1)
-}
-
-.sticky_header {
-    position: fixed;
-
-    background-color: rgba(0, 0, 0, 0.83);
-    padding: 10px 10% 10px 12%;  /* <top, right, bottom, left> */
+    top: 0;
+    left: 0;
     width: 100%;
-    display: flex;  /* Makes all elements in the sticky_header to be on the same line */
-    z-index: 2;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.shrink_header nav button {
-    font-size: 14px;
-    transition: font-size 0.3s ease-in;
+.particles {
+    position: relative;
+    display: flex;
+    z-index: 1;
+    padding: 0 20px;
 }
 
-.shrink_header nav ul li * {
-    font-size: 20px;
-    transition: font-size 0.3s ease-in;
+.particles span {
+    position: relative;
+    bottom: 30px;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    -100px 0 #4fc3dc99,
+    100px 0 #ff2d7599;
+    margin: 0 4px;
+    border-radius: 50%;
+    animation: animate 15s ease infinite;
+    animation-duration: calc(125s / var(--i))
 }
 
-.enlarge_header nav button {
-    font-size: 20px;
-    transition: font-size 0.3s ease-out;
+/* Make every even particle a different colour */
+.particles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    -100px 0 #4fc3dc99,
+    100px 0 #4fc3dc99;
 }
 
-.enlarge_header nav ul li * {
-    font-size: 30px;
-    transition: font-size 0.3s ease-out;
+@keyframes animate {
+    0% {
+        transform: translateY(120vh);
+    }
+    20% {
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(-50vh);
+        transform: scale(0.5);
+        transform: rotate(180deg);
+    }
+}
+
+.content {
+    max-width: 600px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(50, 50, 50, 0.65);
+    z-index: 10;
+}
+
+.content .contentBx h2 {
+    font-size: 4em;
+    color: #fff;
+    line-height: 1em;
+}
+
+.content .contentBx p {
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 300;
+    margin: 20px 0;
+}
+
+.content .contentBx a {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #03a9f4;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: background 0.25s;
+    border-radius: 2px;
+}
+
+.content .contentBx a:hover {
+    background: #048ece;
+    transition: background 0.25s;
+}
+
+.content .contentBx span {
+    padding: 10px 0px 11px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    transition: padding 0.5s, border-color 0.75s;
+}
+
+.content .contentBx span:hover {
+    padding: 15px 5px 15px 5px;
+    border-color: #fff;
+    transition: padding 0.5s, border-color 0.75s;
+}
+
+@media (min-width: 894px) {  /* 894 being the width of the initial background */
+    section {
+        background-size: initial;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #000;
+    }
+}
+
+@media (max-width: 800px) {
+    header {
+        padding: 15px 40px;
+    }
+
+    section {
+        padding: 40px;
+    }
+
+    .content .contentBx h2 {
+        font-size: 2.5em;
+    }
+
+    .content .contentBx p {
+        font-size: 1em;
+    }
+
+    header .navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #000;
+        z-index: 10;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    header .navigation.active {
+        display: flex;
+    }
+
+    header .navigation li a {
+        font-size: 24px;
+        margin: 10px 0;
+
+    }
+
+    .toggleMenu {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background: url("hamburger_icon.jpg");
+        background-position: center;
+        background-size: 30px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        z-index: 11;
+    }
+
+    .toggleMenu.active {
+        background: url("hamburger_icon.jpg");  /* Make this a X instead */
+        background-position: center;
+        background-size: 25px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
 }

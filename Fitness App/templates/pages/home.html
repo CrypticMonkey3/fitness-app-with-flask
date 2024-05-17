@@ -1,70 +1,99 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Home
+{% endblock title %}
+
 {% block stylesheet %}
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 {% endblock stylesheet %}
 
+{% block scripts %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" lang="javascript">
+    function toggleMenu() {
+        const toggleMenu = document.querySelector('.toggleMenu');
+        const navigation = document.querySelector('.navigation');
+        toggleMenu.classList.toggle('active');
+        navigation.classList.toggle('active');
+    }
+</script>
+{% endblock scripts %}
+
 {% block header %}
-        {% include("_navigation.html") %}
+        <a href="#" class="logo">Fitness</a>
+        <div class="toggleMenu" onclick="toggleMenu();"></div>
+        <ul class="navigation">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Trainers</a>
+            </li>
+            <li>
+                <a href="#">Blog</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
 {% endblock header %}
 
 {% block content %}
-        <table>
-                <tr>
-                        <th colspan="2">
-                                <h1>Fitness App</h1>
-                        </th>
-                </tr>
-                <tr>
-                        <td colspan="2">
-                                There have been many great fitness influencers ranging from bodybuilders like Arnold Schwarzenegger to inspire people to begin training their body and their mind in order to find a positive confidence within themselves.
-                                A couple of quotes of some famous fitness figures are below:
-                        </td>
-                </tr>
-                <tr>
-                        <td style="width: 50%;">
-                                "Life's Six Rules for Success:
-                                <ol>
-                                        <li>
-                                                Trust Yourself
-                                        </li>
-                                        <li>
-                                                Break some Rules
-                                        </li>
-                                        <li>
-                                                Don't be afraid to fail.
-                                        </li>
-                                        <li>
-                                                Ignore the naysayers
-                                        </li>
-                                        <li>
-                                                Work like hell
-                                        </li>
-                                        <li>
-                                                Give something back"
-                                        </li>
-                                </ol>
-                                ~ Arnold Schwarzenegger
-                        </td>
-                        <td>
-                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fim.indiatimes.in%2Fcontent%2F2020%2FMar%2F2_5e6dda150f707.jpg&f=1&nofb=1&ipt=2800d646b701d50e7cf613f4cfe75682a83d65bff085ffeeaeaefe0302903d8c&ipo=images" width="350" height="250">
-                        </td>
-                </tr>
-                <tr>
-                        <td>
-                                "The only one you can accurately compare yourself to is you." ~ Mike Mentzer
-                        </td>
-                        <td>
-                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-LvHTG-QTJjI%2FTkSHxIk8jZI%2FAAAAAAAADyY%2FCHuxoqd61_s%2Fs1600%2Ffotos_mike_mentzer_207.jpg&f=1&nofb=1&ipt=594544d6e98bb7fa669eff0d568964cdeb6c97797f0f52216f304b8ba799b808&ipo=images" width="350" height="500">
-                        </td>
-                </tr>
-                <tr>
-                        <td>
-                                "You are what you do repeatedly every day. If excellence is something you're striving for, then it's not an accident. It's a HABIT." ~ Greg Plitt
-                        </td>
-                        <td>
-                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.7-i-vw3Z-OvtNWTxRvi9DwHaLp%26pid%3DApi&f=1&ipt=4a604d1d5ef0776b8475797829046cb25a3ea2ae5141f1d4b9bd27c556830b99&ipo=images" width="350" height="500">
-                        </td>
-                </tr>
-        </table>
+        <div class="content">
+            <div class="contentBx">
+                <h2>Mens sana in</h2>
+                <h2>corpore sano</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enmi ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <span><a href="#">Get Started</a></span>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="particles">
+                <span style="--i:11;"></span>
+                <span style="--i:12;"></span>
+                <span style="--i:24;"></span>
+                <span style="--i:10;"></span>
+                <span style="--i:14;"></span>
+                <span style="--i:23;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:19;"></span>
+                <span style="--i:20;"></span>
+                <span style="--i:22;"></span>
+                <span style="--i:25;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:21;"></span>
+                <span style="--i:13;"></span>
+                <span style="--i:15;"></span>
+                <span style="--i:26;"></span>
+                <span style="--i:17;"></span>
+                <span style="--i:13;"></span>
+                <span style="--i:28;"></span>
+                <span style="--i:11;"></span>
+                <span style="--i:12;"></span>
+                <span style="--i:24;"></span>
+                <span style="--i:10;"></span>
+                <span style="--i:14;"></span>
+                <span style="--i:23;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:19;"></span>
+                <span style="--i:20;"></span>
+                <span style="--i:22;"></span>
+                <span style="--i:25;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:21;"></span>
+                <span style="--i:13;"></span>
+                <span style="--i:15;"></span>
+                <span style="--i:26;"></span>
+                <span style="--i:17;"></span>
+                <span style="--i:13;"></span>
+                <span style="--i:28;"></span>
+            </div>
+        </div>
 {% endblock content %}

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 # blueprints are modules that help organise the structure of applications into subdirectories.
 bp = Blueprint("pages", __name__)
@@ -9,27 +9,8 @@ def home():
     return render_template("pages/home.html")  # render_template expects parameter to be in a templates/ folder already.
 
 
-@bp.route("/about")
-def about():
+@bp.route("/handle_setup_data", methods=["POST"])
+def handle_setup_data():
+    x = request.form["user_dob"]
+    print(x)
     return render_template("pages/about.html")
-
-
-@bp.route("/friends")
-def friends():
-    return render_template("pages/friends.html")
-
-
-@bp.route("/online")
-def online():
-    return render_template("pages/online.html")
-
-
-@bp.route("/profile")
-def profile():
-    return render_template("pages/profile.html")
-
-
-@bp.route("/setup_account")
-def setup_account():
-    return render_template("pages/setup_account.html")
-

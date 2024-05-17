@@ -2,32 +2,18 @@
 <html lang="en-GB">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fitness App: {% block title %}{% endblock title %}</title>
         {% block stylesheet %}{% endblock stylesheet %}
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='header.mjs') }}" defer></script>
-        <script language="JavaScript" type="text/javascript" src="{{ url_for('static', filename='scrolling_background.mjs') }}"></script>
+        {% block scripts %}{% endblock scripts %}
     </head>
-    <body onscroll="stick_header();">
-        <section>
+    <body>
+        <section id="section1">
             <header>
-                <div class="sticky_header" id="sticky_header">
-                    <div class="header_contents" id="header_contents">
-                        {% block header %}No header...{% endblock header %}
-                    </div>
-                </div>
+                {% block header %}{% endblock header %}
             </header>
             <main>
-                <div id="left">
-                    <div class="overlay"></div>
-                </div>
-                <div id="right">
-                    <div class="overlay"></div>
-                </div>
-
-                <div class="main_contents" id="main_contents">
-                    {% block content %}<p>No messages.</p>{% endblock content %}
-                </div>
+                {% block content %}{% endblock content %}
             </main>
         </section>
     </body>
