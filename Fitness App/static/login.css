@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main_section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px;
+    z-index: 3;
+}
+
+.content {
+    display: flex;
+    max-width: 600px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(35, 35, 35, 0.35);
+}
+
+.content .contentBx h2 {
+    font-size: 4em;
+    color: #fff;
+    line-height: 1em;
+}
+
+/* If the page's width exceeds 894px, then change some styles */
+@media (min-width: 894px) {  /* 894 being the width of the initial background */
+    body {
+        background-color: #000;
+    }
+
+    #main_section {
+        background-size: initial;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+/* ----------------------------------- */
