@@ -6,6 +6,7 @@ Home
 
 {% block stylesheet %}
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='particles.css') }}">
 {% endblock stylesheet %}
 
 {% block scripts %}
@@ -48,10 +49,17 @@ Home
                 <h2>Mens sana in</h2>
                 <h2>corpore sano</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enmi ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <br  />
                 <span><a href="#">Get Started</a></span>
             </div>
         </div>
+{% endblock content %}
 
+{% block bg_content %}
+    <div class="bg"></div>
+{% endblock bg_content %}
+
+{% block particle_content %}
         <div class="container">
             <div class="particles">
                 <span style="--i:11;"></span>
@@ -73,7 +81,7 @@ Home
                 <span style="--i:26;"></span>
                 <span style="--i:17;"></span>
                 <span style="--i:13;"></span>
-                <span style="--i:28;"></span>
+                <span style="--i:25;"></span>
                 <span style="--i:11;"></span>
                 <span style="--i:12;"></span>
                 <span style="--i:24;"></span>
@@ -90,10 +98,15 @@ Home
                 <span style="--i:21;"></span>
                 <span style="--i:13;"></span>
                 <span style="--i:15;"></span>
-                <span style="--i:26;"></span>
+                <span style="--i:25;"></span>
                 <span style="--i:17;"></span>
                 <span style="--i:13;"></span>
-                <span style="--i:28;"></span>
+                <span style="--i:24;"></span>
+                <span style="--i:15;"></span>
+                <span style="--i:22;"></span>
+                <span style="--i:17;"></span>
+                <span style="--i:13;"></span>
+                <span style="--i:21;"></span>
             </div>
         </div>
-{% endblock content %}
+{% endblock particle_content %}

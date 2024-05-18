@@ -4,10 +4,10 @@
     box-sizing: border-box;
 }
 
-section {
+#main_section {
     position: relative;
     width: 100%;
-    background: url("greg_plitt_wall_art.jpg");
+    background-image: url(greg_plitt_wall_art.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -15,6 +15,22 @@ section {
     align-items: center;
     min-height: 100vh;
     padding: 100px;
+    z-index: 3;
+}
+
+#bg_section {
+    position: relative;
+    z-index: 2;
+}
+
+#bg_section .bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("Diamond-Plate-Texture.png");
+    background-repeat: repeat;
 }
 
 header {
@@ -75,67 +91,12 @@ header .navigation li a:hover:after {
     width: 90%;
 }
 
-.container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.particles {
-    position: relative;
-    display: flex;
-    z-index: 1;
-    padding: 0 20px;
-}
-
-.particles span {
-    position: relative;
-    bottom: 30px;
-    width: 30px;
-    height: 30px;
-    background: #4fc3dc;
-    box-shadow: 0 0 0 10px #4fc3dc44,
-    0 0 50px #4fc3dc,
-    -100px 0 #4fc3dc99,
-    100px 0 #ff2d7599;
-    margin: 0 4px;
-    border-radius: 50%;
-    animation: animate 15s ease infinite;
-    animation-duration: calc(125s / var(--i))
-}
-
-/* Make every even particle a different colour */
-.particles span:nth-child(even) {
-    background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    -100px 0 #4fc3dc99,
-    100px 0 #4fc3dc99;
-}
-
-@keyframes animate {
-    0% {
-        transform: translateY(120vh);
-    }
-    20% {
-        transform: translateY(100vh);
-    }
-    100% {
-        transform: translateY(-50vh);
-        transform: scale(0.5);
-        transform: rotate(180deg);
-    }
-}
-
 .content {
+    display: flex;
     max-width: 600px;
     border-radius: 10px;
     padding: 20px;
     background-color: rgba(50, 50, 50, 0.65);
-    z-index: 10;
 }
 
 .content .contentBx h2 {
@@ -152,7 +113,7 @@ header .navigation li a:hover:after {
 }
 
 .content .contentBx a {
-    display: inline-block;
+    display: inline;
     padding: 10px 30px;
     background: #03a9f4;
     color: #fff;
@@ -168,8 +129,10 @@ header .navigation li a:hover:after {
     transition: background 0.25s;
 }
 
+/* 'Get Started' button hover expansion */
 .content .contentBx span {
-    padding: 10px 0px 11px;
+    display: inline;
+    padding: 10px 0px 10px 0px;
     border: 1px solid #000;
     border-radius: 2px;
     transition: padding 0.5s, border-color 0.75s;
@@ -180,22 +143,29 @@ header .navigation li a:hover:after {
     border-color: #fff;
     transition: padding 0.5s, border-color 0.75s;
 }
+/* ----------------------------------- */
 
+/* If the page's width exceeds 894px, then change some styles */
 @media (min-width: 894px) {  /* 894 being the width of the initial background */
-    section {
+    body {
+        background-color: #000;
+    }
+
+    #main_section {
         background-size: initial;
         background-position: center;
         background-repeat: no-repeat;
-        background-color: #000;
     }
 }
+/* ----------------------------------- */
 
+/* If the page's width is below 800px then have the styles below */
 @media (max-width: 800px) {
     header {
         padding: 15px 40px;
     }
 
-    section {
+    #main_section {
         padding: 40px;
     }
 
@@ -251,3 +221,4 @@ header .navigation li a:hover:after {
         cursor: pointer;
     }
 }
+/* ----------------------------------- */

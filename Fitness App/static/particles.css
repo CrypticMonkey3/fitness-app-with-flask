@@ -1,0 +1,52 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.particles {
+    position: relative;
+    display: flex;
+}
+
+.particles span {
+    position: relative;
+    bottom: 30px;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    -100px 0 #4fc3dc99,
+    100px 0 #ff2d7599;
+    margin: 0 4px;
+    border-radius: 50%;
+    animation: animate 15s ease infinite;
+    animation-duration: calc(125s / var(--i))
+}
+
+/* Make every even particle a different colour */
+.particles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    -100px 0 #4fc3dc99,
+    100px 0 #4fc3dc99;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(120vh);
+    }
+    20% {
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(-50vh);
+        transform: scale(0.5);
+        transform: rotate(180deg);
+    }
+}

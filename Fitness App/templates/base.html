@@ -8,13 +8,19 @@
         {% block scripts %}{% endblock scripts %}
     </head>
     <body>
-        <section id="section1">
+        <section id="main_section">
             <header>
                 {% block header %}{% endblock header %}
             </header>
             <main>
                 {% block content %}{% endblock content %}
             </main>
+        </section>
+        <section id="bg_section">
+            {% block bg_content %}{% endblock bg_content %}
+        </section>
+        <section id="particle_section">
+            {% block particle_content %}{% endblock particle_content %}
         </section>
     </body>
 </html>
