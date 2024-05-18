@@ -9,8 +9,6 @@ def home():
     return render_template("pages/home.html")  # render_template expects parameter to be in a templates/ folder already.
 
 
-@bp.route("/handle_setup_data", methods=["POST"])
-def handle_setup_data():
-    x = request.form["user_dob"]
-    print(x)
-    return render_template("pages/about.html")
+@bp.route("/login")
+def login():
+    return render_template("pages/login.html")

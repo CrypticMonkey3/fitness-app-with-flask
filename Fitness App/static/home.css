@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main_section {
+    position: relative;
+    width: 100%;
+    background-image: url(greg_plitt_wall_art.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px;
+    z-index: 3;
+}
+
+.content {
+    display: flex;
+    max-width: 600px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(50, 50, 50, 0.65);
+}
+
+.content .contentBx h2 {
+    font-size: 4em;
+    color: #fff;
+    line-height: 1em;
+}
+
+.content .contentBx p {
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 300;
+    margin: 20px 0;
+}
+
+.content .contentBx a {
+    display: inline;
+    padding: 10px 30px;
+    background: #03a9f4;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: background 0.25s;
+    border-radius: 2px;
+}
+
+.content .contentBx a:hover {
+    background: #048ece;
+    transition: background 0.25s;
+}
+
+/* 'Get Started' button hover expansion */
+.content .contentBx span {
+    display: inline;
+    padding: 10px 0px 10px 0px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    transition: padding 0.5s, border-color 0.75s;
+}
+
+.content .contentBx span:hover {
+    padding: 15px 5px 15px 5px;
+    border-color: #fff;
+    transition: padding 0.5s, border-color 0.75s;
+}
+/* ----------------------------------- */
+
+/* If the page's width exceeds 894px, then change some styles */
+@media (min-width: 894px) {  /* 894 being the width of the initial background */
+    body {
+        background-color: #000;
+    }
+
+    #main_section {
+        background-size: initial;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+/* ----------------------------------- */
+
+/* If the page's width is below 800px then have the styles below */
+@media (max-width: 800px) {
+    #main_section {
+        padding: 40px;
+    }
+
+    .content .contentBx h2 {
+        font-size: 2.5em;
+    }
+
+    .content .contentBx p {
+        font-size: 1em;
+    }
+}
+/* ----------------------------------- */

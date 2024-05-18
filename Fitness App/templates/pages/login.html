@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Home
+Login
 {% endblock title %}
 
 {% block stylesheet %}
@@ -24,11 +24,7 @@ Home
 {% block content %}
         <div class="content">
             <div class="contentBx">
-                <h2>Mens sana in</h2>
-                <h2>corpore sano</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enmi ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <br  />
-                <span><a href="{{ url_for('pages.login') }}">Get Started</a></span>
+                ...
             </div>
         </div>
 {% endblock content %}
@@ -38,5 +34,5 @@ Home
 {% endblock bg_content %}
 
 {% block particle_content %}
-        {% include("_particles.html") %}
+    {% include("_particles.html") %}
 {% endblock particle_content %}

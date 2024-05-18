@@ -1,0 +1,14 @@
+#bg_section {
+    position: relative;
+    z-index: 2;
+}
+
+#bg_section .bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("Diamond-Plate-Texture.png");
+    background-repeat: repeat;
+}
