@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}
-Login
-{% endblock title %}
+{% block title %}Login{% endblock title %}
 
 {% block stylesheet %}
         <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
@@ -12,11 +10,11 @@ Login
 {% endblock stylesheet %}
 
 {% block scripts %}
-<script type="text/javascript" lang="javascript" src="{{ url_for('static', filename='menuToggle.mjs') }}"></script>
+        <script type="text/javascript" lang="javascript" src="{{ url_for('static', filename='menuToggle.mjs') }}"></script>
 {% endblock scripts %}
 
 {% block header %}
-        <a href="#" class="logo">Fitness</a>
+        <a href="{{ url_for('pages.home') }}" class="logo">Fitness</a>
         <div class="toggleMenu" onclick="toggleMenu();"></div>
         {% include("_navigation.html") %}
 {% endblock header %}
@@ -24,29 +22,46 @@ Login
 {% block content %}
         <div class="content">
             <div class="contentBx">
-                <h2>Login</h2>
-                <form method="post">
-                    <label>Email:</label>
-                    <br  />
-                    <input type="text" id="email" name="email">
-                    <br  />
-                    <label>Password:</label>
-                    <br  />
-                    <input type="password" id="password" name="password">
-                    <input type="button" value="Auto Generate" id="auto-password" name="auto-password">
-                    <!-- Use https://github.com/dwyl/english-words for auto-generation -->
-                    <br  />
-                    <br  />
-                    <input type="submit" value="Continue" id="continue" name="continue">
-                </form>
-
+                <table>
+                    <tr>
+                        <th>
+                            <h2>Register</h2>
+                        </th>
+                        <th>
+                            <h2>Login</h2>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form method="post" action="{{ url_for('pages.dob') }}">
+                                <input type="text" id="register-email" name="register-email" placeholder="Email">
+                                <br  />
+                                <input type="password" id="register-password1" name="register-password1" placeholder="Password">
+                                <input type="password" id="register-password2" name="register-password2" placeholder="Re-enter Password">
+                                <input type="button" value="Auto Generate" id="auto-password" name="auto-password">
+                                <br  />
+                                <br  />
+                                <span><span><input type="submit" value="Register" id="register" name="register"></span></span>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" action="{{ url_for('pages.login') }}">
+                                <input type="text" id="login-email" name="login-email" placeholder="Email">
+                                <br  />
+                                <input type="password" id="login-password" name="login-password" placeholder="Password">
+                                <!-- Use https://github.com/dwyl/english-words for auto-generation -->
+                                <br  />
+                                <br  />
+                                <span><span><input type="submit" value="Continue" id="continue" name="continue"></span></span>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
 {% endblock content %}
 
-{% block bg_content %}
-    <div class="bg"></div>
-{% endblock bg_content %}
+{% block bg_content %}<div class="bg"></div>{% endblock bg_content %}
 
 {% block particle_content %}
     {% include("_particles.html") %}

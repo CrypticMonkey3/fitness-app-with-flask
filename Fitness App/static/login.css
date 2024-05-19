@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #000;
+}
+
 #main_section {
     position: relative;
     width: 100%;
@@ -17,28 +21,94 @@
 
 .content {
     display: flex;
-    max-width: 600px;
+    max-width: 800px;
     border-radius: 10px;
-    padding: 20px;
+    padding: 40px;
     background-color: rgba(35, 35, 35, 0.35);
+    border: 1px solid #fff;
 }
 
 .content .contentBx h2 {
+    text-align: center;
     font-size: 4em;
     color: #fff;
     line-height: 1em;
+    padding-bottom: 20px;
 }
 
-/* If the page's width exceeds 894px, then change some styles */
-@media (min-width: 894px) {  /* 894 being the width of the initial background */
-    body {
-        background-color: #000;
-    }
-
-    #main_section {
-        background-size: initial;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+table {
+    border: none;
+    border-collapse: collapse;
 }
-/* ----------------------------------- */
+
+table td, th {
+    border-left: 1px dotted #fff;
+}
+
+table td:first-child, th:first-child {
+    border-left: none;
+}
+
+form {
+    display: grid;
+    position: relative;
+    place-items: center;
+    width: 300px;
+}
+
+#register-email, #register-password1, #login-email, #login-password, #register-password2 {
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 70%;
+    margin: 7.5px 0px 7.5px 0px;
+    border: 1px solid black;
+    transition: width 0.5s;
+}
+
+#register-email:hover, #register-password1:hover, #login-email:hover, #login-password:hover,
+#register-password2:hover {
+    width: 90%;
+    transition: width 0.5s;
+}
+
+#register-email:focus, #register-password1:focus, #login-email:focus, #login-password:focus,
+#register-password2:focus {
+    width: 90%;
+    border: 1px solid #04a5ef;
+}
+
+#register, #continue {
+    display: inline;
+    border-radius: 7px;
+    border-style: none;
+    padding: 12px 20px 12px 20px;
+    background: #01628e;
+    transition: background 0.25s;
+    color: #fff;
+    letter-spacing: 0.8px;
+}
+
+#register:hover, #continue:hover {
+    background: #0586c1;
+    transition: background 0.25s;
+}
+
+.content .contentBx span {
+    margin: 15px;
+}
+
+.content .contentBx span span {
+    display: inline;
+    margin: 0px;
+    padding: 12px 0px 12px 0px;
+    border: 1px solid #000;
+    border-radius: 7px;
+    transition: padding 0.35s, border-color 0.75s;
+}
+
+.content .contentBx span span:hover {
+    padding: 17px 5px 17px 5px;
+    border-color: #fff;
+    transition: padding 0.35s, border-color 0.75s;
+}
