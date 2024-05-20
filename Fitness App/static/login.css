@@ -56,6 +56,11 @@ form {
     width: 300px;
 }
 
+.password_hint {
+    display: none;
+    color: red;
+}
+
 #register-email, #register-password1, #login-email, #login-password, #register-password2 {
     outline: none;
     padding: 10px;
