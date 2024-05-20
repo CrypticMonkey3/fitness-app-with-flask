@@ -2,41 +2,52 @@
 const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const special_chars = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
+
 function validate_input(email, password) {
     // Validate email
-    let valid_email = (email) => { return email_regex.test(email); };
-    let valid_password = (password) => { return (password.length > 10) && /[A-Z]/.test(password) && /[a-z]/.test(password) && special_chars.test(password); };
-    console.log(valid_email ? "Valid email": "Invalid email");
-    console.log(email);
-    console.log(valid_password ? "Valid password": "Invalid password");
-    console.log(password);
+    let valid_email = email_regex.test(email);
+    // Validate password
+    let valid_password = (password.length > 10) && /[A-Z]/.test(password) && /[a-z]/.test(password) && special_chars.test(password);
 
     return [valid_email, valid_password];
 }
 
+
 function validate_registration() {
-    var email = document.getElementById("register-email").value;
-    console.log(email);
-    var password = document.getElementById("register-password1").value;
-    console.log(password);
-    let password2 = document.getElementById("register-password2").value;
+    var email_tag = document.getElementById("register-email");
+    // console.log(email_tag.value);
 
-    let valid_inputs = validate_input(email, password);
-    let valid_registration = valid_inputs.every(element => element === true) && password2 == password;
+    var password_tag = document.getElementById("register-password1");
+    // console.log(password_tag.value);
 
-    if (!valid_inputs[0]) {  // if email is invalid
-        // change border colour of email box
-        document.getElementById("register-email").style.border = "1px solid red";
+    let password2_tag = document.getElementById("register-password2");
+    // console.log(password2_tag.value);
+
+    let incorrect_email_txt = document.getElementById("invalid_email");
+    let incorrect_pass_txt = document.getElementById("password_hint");
+    let incorrect_reentry = document.getElementById("password_match");
+
+    let form_tags = [[email_tag, incorrect_email_txt], [password_tag, incorrect_pass_txt, password2_tag]];
+    let valid_inputs = validate_input(email_tag.value, password_tag.value);
+    let valid_registration = valid_inputs.every(element => element === true) && password2_tag.value == password_tag.value;
+
+    // ((!valid_inputs[0] && !email_tag.classList.contains("invalid")) || (valid_inputs[0] && email_tag.classList.contains("invalid")))
+    // The above is an expanded version of the below for email_tag.
+    let toggle_tag = (validity, tag) => ((!validity && !tag.classList.contains("change")) || (validity && tag.classList.contains("change")));
+
+    for (let i = 0; i < form_tags.length; i++) {
+        // if the tag is invalid and doesn't have a invalid class attached to it- then toggle on the invalid class
+        // OR
+        // if the tag is valid and had an invalid class is attached to the tag- then toggle the invalid class off.
+        if (toggle_tag(valid_inputs[i], form_tags[i][0])) {
+            for (let j = 0; j < form_tags[i].length; j++) {
+                form_tags[i][j].classList.toggle("change");
+                console.log(form_tags[i][j].id, "was toggled!");
+            }
+        }
     }
 
-    if (!valid_inputs[1]) {  // if password is not at a secure enough level
-        // change border colour of password boxes
-        document.getElementById("register-password1").style.border = "1px solid red";
-        document.getElementById("register-password2").style.border = "1px solid red";
-
-        // make password requirements appear with the auto-generate button
-        document.getElementByClassName("password_hint").style.display = "block";
-    }
+    // Set up CSS for tags with the 'invalid' class- similar to how the red borders and additional text to show up
 
     if (password != password2) {
         // change border colour of re-enter password box
@@ -46,8 +57,11 @@ function validate_registration() {
     if (valid_registration) {
         console.log("Valid registration");
         // POST to Python
+
+        return true;
     }
-    return;
+
+    return false;
 }
 
 function validate_login() {

@@ -21,7 +21,7 @@ body {
 
 .content {
     display: flex;
-    max-width: 800px;
+    max-width: 1000px;
     border-radius: 10px;
     padding: 40px;
     background-color: rgba(35, 35, 35, 0.35);
@@ -53,12 +53,38 @@ form {
     display: grid;
     position: relative;
     place-items: center;
-    width: 300px;
+    width: 400px;
 }
 
-.password_hint {
-    display: none;
-    color: red;
+#password_hint, #password_match, #invalid_email {
+    opacity: 0;
+    color: #f20430;
+    letter-spacing: 0.65px;
+    height: 0;
+    font-size: 0px;
+    transition: opacity 1.25s linear;
+    width: 90%;
+}
+
+#password_hint li {
+    list-style: none;
+}
+
+#password_hint li:first-child {
+    padding-top: 5px;
+}
+
+#password_hint li:last-child {
+    padding-bottom: 5px;
+}
+
+#password_hint.change, #password_match.change, #invalid_email.change {
+    opacity: 1;
+    font-size: 12px;
+    height: auto;
+    transition: opacity 1.25s linear;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
 }
 
 #register-email, #register-password1, #login-email, #login-password, #register-password2 {
@@ -69,6 +95,11 @@ form {
     margin: 7.5px 0px 7.5px 0px;
     border: 1px solid black;
     transition: width 0.5s;
+}
+
+#register-email.change, #register-password1.change, #login-email.change, #login-password.change,
+#register-password2.change {
+    border: 1px solid red;
 }
 
 #register-email:hover, #register-password1:hover, #login-email:hover, #login-password:hover,

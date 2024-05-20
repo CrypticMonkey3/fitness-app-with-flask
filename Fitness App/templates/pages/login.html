@@ -34,11 +34,12 @@
                     </tr>
                     <tr>
                         <td>
-                            <form>
+                            <form id="form" onsubmit="return validate_registration();">
                                 <input type="text" id="register-email" name="register-email" placeholder="Email">
+                                <p id="invalid_email">The entered email is incorrect.</p>
                                 <br  />
                                 <input type="password" id="register-password1" name="register-password1" placeholder="Password">
-                                <div class="password_hint">
+                                <div id="password_hint">
                                     <p>Ensure your password meets the following criteria:</p>
                                     <ul>
                                         <li>Greater than 10 characters</li>
@@ -46,13 +47,14 @@
                                         <li>Contains lowercase letters</li>
                                         <li>Contains special characters, like: @, !, #, etc</li>
                                     </ul>
-                                    <p>If you are uncertain about a suitable password, consider using our Auto-Generation button below that creates a password for you.</p>
-                                    <input type="button" value="Auto Generate" id="auto-password" name="auto-password">
                                 </div>
                                 <input type="password" id="register-password2" name="register-password2" placeholder="Re-enter Password">
+                                <div id="password_match">
+                                    <p><i>Passwords do not match</i>.</p>
+                                </div>
                                 <br  />
                                 <br  />
-                                <span><span><input type="submit" value="Register" id="register" name="register" onclick="validate_registration();"></span></span>
+                                <span><span><input type="submit" value="Register" id="register" name="register"></span></span>
                             </form>
                         </td>
                         <td>
