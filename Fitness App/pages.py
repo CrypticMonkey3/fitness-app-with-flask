@@ -1,16 +1,17 @@
-from flask import Blueprint, render_template, request, redirect, url_for, Response
-from typing import Union
-import json
+from flask import Blueprint, render_template, request
+from flask_bcrypt import generate_password_hash
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
+from database_objects import *
+from typing import *
 
 # blueprints are modules that help organise the structure of applications into subdirectories.
 bp = Blueprint("pages", __name__)
 
-
-@bp.route("/test", methods=["GET", "POST"])
-def test():
-    print("POST message:")
-    print(f"\033[0m{request.get_json()}")  # parses as JSON
-    return "OK", 200
+FILE_NAME = "users.db"
+engine = create_engine(f"sqlite:///{FILE_NAME}", echo=True)
+session = Session(engine)
+Base.metadata.create_all(engine)
 
 
 @bp.route("/")
@@ -31,19 +32,19 @@ def login() -> str:
     return render_template("pages/login.html")
 
 
-@bp.route("/dob", methods=["GET", "POST"])
-def dob() -> Union[str, Response]:
+@bp.route("/dob", methods=["POST"])
+def dob() -> Union[str, Tuple[str, int]]:
     """
     Date of Birth route
     :return: Union[str, Response]
     """
     if request.method == "POST":
-        print("POST message:")
-        print(request.get_json())  # parses as JSON
-        # print(request.form)
-        # print(list(request.form))
-        # print(request.values)
-        return redirect(url_for("pages.home"))
+        login_info = request.get_json()  # parses as JSON
+        # for true security, should probably hash the password in the JS script too, as well as having a larger amounts of rounds to bcrypt.
+        session.add(User(email=login_info["email"], password=generate_password_hash(login_info["password"], 12)))
+        session.commit()
+
+        return "OK", 200
 
     return render_template("pages/dob.html")
 
