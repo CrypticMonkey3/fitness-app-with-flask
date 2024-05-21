@@ -78,7 +78,7 @@ form {
     padding-bottom: 5px;
 }
 
-#password_hint.change, #password_match.change, #invalid_email.change {
+#password_hint.change, #password_match.change, #invalid_email.change, #password_match.show_text {
     opacity: 1;
     font-size: 12px;
     height: auto;

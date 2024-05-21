@@ -48,17 +48,43 @@ function validate_registration() {
     }
 
     // Set up CSS for tags with the 'invalid' class- similar to how the red borders and additional text to show up
+    console.log(password2_tag.value, password_tag.value);
 
-    if (password != password2) {
-        // change border colour of re-enter password box
-        document.getElementById("register-password2").style.border = "1px solid red";
+    if ((password_tag.value != password2_tag.value) && valid_inputs[1]) {
+        console.log("Password match stuff");
+        if (!incorrect_reentry.classList.contains("show_text")) {
+            incorrect_reentry.classList.toggle("show_text");
+        }
+
+        password2_tag.classList.toggle("change");
+        if (!password2_tag.classList.contains("change")) {
+            password2_tag.classList.toggle("change");
+        }
     }
 
     if (valid_registration) {
         console.log("Valid registration");
-        // POST to Python
 
-        return true;
+        // POST data back to Flask
+        fetch(
+            "/test",
+            {
+                method: "POST",
+                headers: {  // shows that the payload will be in JSON.
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({  // JSON payload
+                    "email": email_tag.value,
+                    "password": password_tag.value
+                })
+            }
+        ).then(function (response) {  // awaits a response from Python Flask
+            return response.text();  // Returns the text to the function below
+        }).then( function (text) {
+            console.log("POST response:", text);  // text would be 'OK' if successful.
+        })
+
+        //return true;
     }
 
     return false;

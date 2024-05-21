@@ -1,8 +1,16 @@
 from flask import Blueprint, render_template, request, redirect, url_for, Response
 from typing import Union
+import json
 
 # blueprints are modules that help organise the structure of applications into subdirectories.
 bp = Blueprint("pages", __name__)
+
+
+@bp.route("/test", methods=["GET", "POST"])
+def test():
+    print("POST message:")
+    print(f"\033[0m{request.get_json()}")  # parses as JSON
+    return "OK", 200
 
 
 @bp.route("/")
@@ -30,10 +38,11 @@ def dob() -> Union[str, Response]:
     :return: Union[str, Response]
     """
     if request.method == "POST":
-
-        print(request.form)
-        print(list(request.form))
-        print(request.values)
+        print("POST message:")
+        print(request.get_json())  # parses as JSON
+        # print(request.form)
+        # print(list(request.form))
+        # print(request.values)
         return redirect(url_for("pages.home"))
 
     return render_template("pages/dob.html")

@@ -34,9 +34,10 @@
                     </tr>
                     <tr>
                         <td>
+                            <!-- Returning false from validate_registration() means that the page won't refresh -->
                             <form id="form" onsubmit="return validate_registration();">
                                 <input type="text" id="register-email" name="register-email" placeholder="Email">
-                                <p id="invalid_email">The entered email is incorrect.</p>
+                                <p id="invalid_email">The entered email is invalid.</p>
                                 <br  />
                                 <input type="password" id="register-password1" name="register-password1" placeholder="Password">
                                 <div id="password_hint">
@@ -50,7 +51,7 @@
                                 </div>
                                 <input type="password" id="register-password2" name="register-password2" placeholder="Re-enter Password">
                                 <div id="password_match">
-                                    <p><i>Passwords do not match</i>.</p>
+                                    <p>Passwords do not match.</p>
                                 </div>
                                 <br  />
                                 <br  />
@@ -62,7 +63,6 @@
                                 <input type="text" id="login-email" name="login-email" placeholder="Email">
                                 <br  />
                                 <input type="password" id="login-password" name="login-password" placeholder="Password">
-                                <!-- Use https://github.com/dwyl/english-words for auto-generation -->
                                 <br  />
                                 <br  />
                                 <span><span><input type="submit" value="Continue" id="continue" name="continue"></span></span>
