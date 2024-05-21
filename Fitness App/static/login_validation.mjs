@@ -61,6 +61,10 @@ function validate_registration() {
             password2_tag.classList.toggle("change");
         }
     }
+    else if ((password_tag.value == password2_tag.value) && password2_tag.value) {
+        password2_tag.classList.remove(...password2_tag.classList);
+        incorrect_reentry.classList.remove(...incorrect_reentry.classList);
+    }
 
     if (valid_registration) {
         console.log("Valid registration");
