@@ -26,6 +26,7 @@ function validate_registration() {
     let incorrect_email_txt = document.getElementById("invalid_email");
     let incorrect_pass_txt = document.getElementById("password_hint");
     let incorrect_reentry = document.getElementById("password_match");
+    let existing_email = document.getElementById("existing_email");
 
     let form_tags = [[email_tag, incorrect_email_txt], [password_tag, incorrect_pass_txt, password2_tag]];
     let valid_inputs = validate_input(email_tag.value, password_tag.value);
@@ -86,10 +87,22 @@ function validate_registration() {
         ).then(function (response) {  // awaits a response from Python Flask
             return response.text();  // Returns the text to the function below
         }).then( function (text) {
+            // remove any classes attached to the tags below.
+            existing_email.classList.remove(...existing_email.classList);
+            email_tag.classList.remove(...email_tag.classList);
+            if (text == "I'm a teapot") {  // the server can't brew your coffee because it's a teapot ;)
+                // in actuality it's to do with how an existing email than the inputted one already exists
+                existing_email.classList.add("change");
+                email_tag.classList.add("change");
+            }
+
             console.log("POST response:", text);  // text would be 'OK' if successful.
         })
 
-        //return true;  // go to new page
+        if (!existing_email.classList.contains("change")) {
+            // REDIRECT ONTO dob.html
+            return true;
+        }
     }
 
     return false;

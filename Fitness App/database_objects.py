@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase
-from datetime import datetime
+from typing import Optional
 
 
 class Base(DeclarativeBase):
@@ -15,11 +15,11 @@ class User(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     email: Mapped[str]
     password: Mapped[str]
-    dob: Mapped[datetime]
-    weight: Mapped[float]
-    gender: Mapped[str]
-    goal: Mapped[str]
-    training_style: Mapped[str]
+    dob: Mapped[Optional[str]]
+    weight: Mapped[Optional[float]]
+    gender: Mapped[Optional[str]]
+    goal: Mapped[Optional[str]]
+    training_style: Mapped[Optional[str]]
 
     def __repr__(self):
         return (f"<Hero(id={self.id}, email={self.email}, password={self.password}, dob={self.dob}, weight={self.weight},"

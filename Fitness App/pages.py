@@ -40,11 +40,16 @@ def dob() -> Union[str, Tuple[str, int]]:
     """
     if request.method == "POST":
         login_info = request.get_json()  # parses as JSON
-        # for true security, should probably hash the password in the JS script too, as well as having a larger amounts of rounds to bcrypt.
-        session.add(User(email=login_info["email"], password=generate_password_hash(login_info["password"], 12)))
-        session.commit()
 
-        return "OK", 200
+        # checks if the registered user is already in the database or not.
+        if len(session.query(User).where(User.email == login_info["email"]).all()) == 0:
+            # for true security, should probably hash the password in the JS script too, as well as having a larger amounts of rounds to bcrypt.
+            session.add(User(email=login_info["email"], password=generate_password_hash(login_info["password"], 12)))
+            session.commit()
+
+            return "OK", 200
+
+        return "I'm a teapot", 418  # The email is already in use.
 
     return render_template("pages/dob.html")
 
