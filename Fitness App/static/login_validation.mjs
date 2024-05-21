@@ -62,6 +62,7 @@ function validate_registration() {
         }
     }
     else if ((password_tag.value == password2_tag.value) && password2_tag.value) {
+        // remove any classes attached to the corresponding tag.
         password2_tag.classList.remove(...password2_tag.classList);
         incorrect_reentry.classList.remove(...incorrect_reentry.classList);
     }
