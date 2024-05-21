@@ -66,6 +66,10 @@ function validate_registration() {
         incorrect_reentry.classList.remove(...incorrect_reentry.classList);
     }
 
+    // https://dev.to/healeycodes/talking-to-python-from-javascript-and-back-again-31jf
+    // https://api.jquery.com/jquery.post/
+    // https://stackoverflow.com/questions/29987323/how-do-i-send-data-from-js-to-python-with-flask
+
     if (valid_registration) {
         console.log("Valid registration");
 
