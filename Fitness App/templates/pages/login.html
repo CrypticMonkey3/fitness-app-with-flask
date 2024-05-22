@@ -60,10 +60,12 @@
                             </form>
                         </td>
                         <td>
-                            <form method="post" action="{{ url_for('pages.menu') }}">
+                            <form id="login_form" method="post" action="{{ url_for('pages.menu') }}">
                                 <input type="text" id="login-email" name="login-email" placeholder="Email">
+                                <p id="non_existent_email">The entered email does not exist.</p>
                                 <br  />
                                 <input type="password" id="login-password" name="login-password" placeholder="Password">
+                                <p id="wrong_password">The password you have entered is incorrect</p>
                                 <br  />
                                 <br  />
                                 <span><span><input type="submit" value="Continue" id="continue" name="continue"></span></span>

@@ -4,9 +4,16 @@ const special_chars = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
 
 window.onload = function() {
+    // Add an event listener to when the registration form gets submitted.
     document.getElementById("registration_form").addEventListener("submit", function(event) {
         event.preventDefault();
         validate_registration();
+    });
+
+    // Add an event listener to when the login form gets submitted.
+    document.getElementById("login_form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        validate_login();
     });
 }
 
@@ -81,8 +88,8 @@ async function validate_registration() {
         console.log("Valid registration");
 
         // POST data back to Flask
-        let response = await fetch(  // await until the POST has been sent, and received.
-            "/login",
+        await fetch(  // await until the POST has been sent, and received.
+            "/login/validate_registration",
             {
                 method: "POST",
                 headers: {  // shows that the payload will be in JSON.
@@ -112,7 +119,7 @@ async function validate_registration() {
 
             console.log("POST response:", text);  // text would be 'OK' if successful.
 
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.log("Custom Error Message: Failed to POST. Description to error is:", error);
 
             // Make some error message pop up for the user about the potential server side issues
@@ -120,8 +127,58 @@ async function validate_registration() {
     }
 }
 
-function validate_login() {
-    // POST to Python
+async function validate_login() {
+    let login_tags = [
+        document.getElementById("login-email"),
+        document.getElementById("non_existent_email"),
+        document.getElementById("login-password"),
+        document.getElementById("wrong_password")
+    ];
 
-    // GET from Python
+    // POST to Flask
+    await fetch(
+        "/login/validate_login",
+        {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "email": login_tags[0].value,
+                "password": login_tags[2].value
+            })
+        }
+    ).then(function (response) {
+        return response.text();
+
+    }).then(function (text) {
+        console.log(text);
+
+        for (let i = 0; i < login_tags.length; i++) {
+            login_tags[i].classList.remove(...login_tags[i].classList);
+        }
+
+        switch (text) {
+            case "non existent email":
+                for (let i = 0; i < 2; i++) {
+                    login_tags[i].classList.add("change");
+                }
+                break;
+
+            case "incorrect password":
+                for (let i = 2; i < 4; i++) {
+                    login_tags[i].classList.add("change");
+                }
+                break;
+
+            default:
+                document.getElementById("login_form").submit();
+        }
+
+    }).catch(function (error) {
+        console.log("Custom Error Message: Failed to POST. Description to error is:", error);
+
+        // Make some error message pop up for the user about the potential server side issues
+    })
 }

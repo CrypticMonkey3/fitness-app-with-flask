@@ -22,23 +22,5 @@ class User(Base):
     training_style: Mapped[Optional[str]]
 
     def __repr__(self):
-        return (f"<Hero(id={self.id}, email={self.email}, password={self.password}, dob={self.dob}, weight={self.weight},"
+        return (f"<User(id={self.id}, email={self.email}, password={self.password}, dob={self.dob}, weight={self.weight},"
                 f"gender={self.gender}, goal={self.goal}, training_style={self.training_style})>")
-
-
-# if __name__ == "__main__":
-#     Base.metadata.create_all(engine)
-
-    # session.add(Hero(name="Super Man", secret_name="Clark Kent", age=40, password="Louis Lane"))
-    # session.commit()
-
-    # print(session.query(Hero).all())
-
-    # obj = session.query(Hero).get(1)
-    # obj.secret_name = "Bruce Wayne"
-    # session.commit()
-    # print(session.query(Hero).all())
-
-    # hero = Hero(name="Super Man", secret_name="Clark Kent", age=40)
-    # add_hero(hero)
-    # delete_hero(2)

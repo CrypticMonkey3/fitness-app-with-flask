@@ -56,7 +56,7 @@ form {
     width: 400px;
 }
 
-#password_hint, #password_match, #invalid_email, #existing_email {
+#password_hint, #password_match, #invalid_email, #existing_email, #non_existent_email, #wrong_password {
     opacity: 0;
     color: #f20430;
     letter-spacing: 0.65px;
@@ -79,7 +79,7 @@ form {
 }
 
 #password_hint.change, #password_match.change, #invalid_email.change, #password_match.show_text,
-#existing_email.teapot {
+#existing_email.teapot, #non_existent_email.change, #wrong_password.change {
     opacity: 1;
     font-size: 12px;
     height: auto;
