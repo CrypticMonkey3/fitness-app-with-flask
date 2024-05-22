@@ -35,7 +35,7 @@
                     <tr>
                         <td>
                             <!-- Returning false from validate_registration() means that the page won't refresh -->
-                            <form id="form" onsubmit="return validate_registration();">
+                            <form id="registration_form" action="{{ url_for('pages.dob') }}">
                                 <input type="text" id="register-email" name="register-email" placeholder="Email">
                                 <p id="invalid_email">The entered email is invalid.</p>
                                 <p id="existing_email">The entered email already exists.</p>

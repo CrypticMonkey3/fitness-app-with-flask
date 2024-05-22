@@ -23,27 +23,19 @@ def home() -> str:
     return render_template("pages/home.html")  # render_template expects parameter to be in a templates/ folder already.
 
 
-@bp.route("/login")
-def login() -> str:
+@bp.route("/login", methods=["GET", "POST", "HEAD"])
+def login() -> Union[str, Tuple[str, int]]:
     """
     Login route
-    :return: str
-    """
-    return render_template("pages/login.html")
-
-
-@bp.route("/dob", methods=["POST"])
-def dob() -> Union[str, Tuple[str, int]]:
-    """
-    Date of Birth route
-    :return: Union[str, Response]
+    :return: Union[str, Tuple[str, int]]
     """
     if request.method == "POST":
         login_info = request.get_json()  # parses as JSON
 
         # checks if the registered user is already in the database or not.
         if len(session.query(User).where(User.email == login_info["email"]).all()) == 0:
-            # for true security, should probably hash the password in the JS script too, as well as having a larger amounts of rounds to bcrypt.
+            # for true security, should probably hash the password in the JS script too,
+            # as well as having a larger amounts of rounds to bcrypt.
             session.add(User(email=login_info["email"], password=generate_password_hash(login_info["password"], 12)))
             session.commit()
 
@@ -51,6 +43,15 @@ def dob() -> Union[str, Tuple[str, int]]:
 
         return "I'm a teapot", 418  # The email is already in use.
 
+    return render_template("pages/login.html")
+
+
+@bp.route("/dob")
+def dob() -> str:
+    """
+    Date of Birth route
+    :return: str
+    """
     return render_template("pages/dob.html")
 
 

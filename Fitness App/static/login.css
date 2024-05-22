@@ -78,7 +78,8 @@ form {
     padding-bottom: 5px;
 }
 
-#password_hint.change, #password_match.change, #invalid_email.change, #password_match.show_text, #existing_email.change {
+#password_hint.change, #password_match.change, #invalid_email.change, #password_match.show_text,
+#existing_email.teapot {
     opacity: 1;
     font-size: 12px;
     height: auto;
@@ -98,7 +99,7 @@ form {
 }
 
 #register-email.change, #register-password1.change, #login-email.change, #login-password.change,
-#register-password2.change {
+#register-password2.change, #register-email.teapot {
     border: 1px solid red;
 }
 
