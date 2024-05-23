@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Menu
+{% endblock title %}
+
+{% block stylesheet %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='particles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='diamond_plate_texture.css') }}">
+{% endblock stylesheet %}
+
+{% block scripts %}
+        <script type="text/javascript" lang="javascript" src="{{ url_for('static', filename='menuToggle.mjs') }}"></script>
+{% endblock scripts %}
+
+{% block header %}
+        <a href="#" class="logo">Fitness</a>
+        <div class="toggleMenu" onclick="toggleMenu();"></div>
+        {% include("_navigation.html") %}
+{% endblock header %}
+
+{% block content %}
+        <div class="content">
+            <div class="contentBx">
+                <h2>Menu page has not been implemented yet.</h2>
+            </div>
+        </div>
+{% endblock content %}
+
+{% block bg_content %}
+    <div class="bg"></div>
+{% endblock bg_content %}
+
+{% block particle_content %}
+        {% include("_particles.html") %}
+{% endblock particle_content %}

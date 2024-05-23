@@ -117,17 +117,21 @@ async function validate_registration() {
                 document.getElementById("registration_form").submit();
             }
 
+            if (footer.classList.contains("appear")) {
+                footer.classList.remove("appear");
+            }
+
             console.log("POST response:", text);  // text would be 'OK' if successful.
 
         }).catch(function (error) {
             console.log("Custom Error Message: Failed to POST. Description to error is:", error);
-
-            // Make some error message pop up for the user about the potential server side issues
+            footer.classList.add("appear");
         })
     }
 }
 
 async function validate_login() {
+    let footer = document.querySelector("footer");
     let login_tags = [
         document.getElementById("login-email"),
         document.getElementById("non_existent_email"),
@@ -176,9 +180,12 @@ async function validate_login() {
                 document.getElementById("login_form").submit();
         }
 
+        if (footer.classList.contains("appear")) {
+            footer.classList.remove("appear");
+        }
+
     }).catch(function (error) {
         console.log("Custom Error Message: Failed to POST. Description to error is:", error);
-
-        // Make some error message pop up for the user about the potential server side issues
+        footer.classList.add("appear");
     })
 }

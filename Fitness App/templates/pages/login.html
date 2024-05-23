@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='particles.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='diamond_plate_texture.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='footer.css') }}">
 {% endblock stylesheet %}
 
 {% block scripts %}
@@ -76,6 +77,10 @@
             </div>
         </div>
 {% endblock content %}
+
+{% block footer %}
+    <p id="error_message">Internal Server Error has occurred, please wait until the problem has been resolved.</p>
+{% endblock footer %}
 
 {% block bg_content %}<div class="bg"></div>{% endblock bg_content %}
 

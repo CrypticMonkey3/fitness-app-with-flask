@@ -23,7 +23,7 @@ header .logo {
 
 header .navigation {
     position: relative;
-    display; flex;
+    display: flex;
 }
 
 header .navigation li {
@@ -85,21 +85,28 @@ header .navigation li a:hover:after {
     }
 
     .toggleMenu {
-        position: relative;
+        position: fixed;
+        right: 50px;
         width: 30px;
         height: 30px;
-        background: url("hamburger_icon.jpg");
+        background: url("hamburger_icon.png");
         background-position: center;
-        background-size: 30px;
+        background-size: 60px;
+        transition: background-size 0.5s;
         background-repeat: no-repeat;
         cursor: pointer;
         z-index: 11;
     }
 
+    .toggleMenu:hover, .toggleMenu.active:hover {
+        background-size: 70px;
+        transition: background-size 0.5s;
+    }
+
     .toggleMenu.active {
-        background: url("hamburger_icon.jpg");  /* Make this a X instead */
+        background: url("X_icon.png");  /* Make this a X instead */
         background-position: center;
-        background-size: 25px;
+        background-size: 60px;
         background-repeat: no-repeat;
         cursor: pointer;
     }
